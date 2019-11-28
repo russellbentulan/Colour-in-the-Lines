@@ -1,26 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Qs from 'qs';
+import axios from 'axios';
+
+import Header from './Header';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+      super();
+      this.state = {
+        coloursBaseUrl: "http://www.colourlovers.com/api/palettes",
+        coloursQuery: "in development",
+        coloursResponse: []
+      };
+  }
+
+  componentDidMount = () => {
+    axios({
+      method: "get",
+      url: "https://proxy.hackeryou.com",
+      dataResponse: "json",
+      paramsSerializer: function(params) {
+        return Qs.stringify(params, { arrayFormat: "brackets" });
+      },
+      params: {
+        reqUrl: "http://www.colourlovers.com/api/palettes",
+        params: {
+          keywords: this.state.coloursQuery,
+          numResults: 10,
+          orderCol: 'numVotes',
+          format: 'json'
+        }
+      }
+    }).then(res => {
+      console.log(res);
+    });
+  }
+
+  render() {
+    return(
+      <div>
+
+        <Header />
+
+        <main>
+          <section className="palette">
+            <ul className="palette__list">
+
+            </ul>
+          </section>
+        </main>
+
+      </div>
+    )
+  }
 }
 
 export default App;
