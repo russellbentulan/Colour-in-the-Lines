@@ -12,7 +12,7 @@ class App extends Component {
       this.state = {
         coloursBaseUrl: "http://www.colourlovers.com/api/palettes",
         coloursQuery: "in development",
-        coloursResponse: []
+        coloursAvailable: []
       };
   }
 
@@ -35,6 +35,9 @@ class App extends Component {
       }
     }).then(res => {
       console.log(res);
+      this.setState({
+        coloursAvailable: res.data
+      });
     });
   }
 
@@ -46,9 +49,15 @@ class App extends Component {
 
         <main>
           <section className="palette">
+            {this.state.coloursAvailable 
+              ?
             <ul className="palette__list">
-
+              {this.state.coloursAvailable.map(palette => 
+                <li key={palette.id}>{palette.title}</li>)}
             </ul>
+              :
+            null}
+            
           </section>
         </main>
 
