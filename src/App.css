@@ -20,3 +20,8 @@
 .App-link {
   color: #09d3ac;
 }
+
+.palette__color {
+  width: 150px;
+  height: 150px;
+}

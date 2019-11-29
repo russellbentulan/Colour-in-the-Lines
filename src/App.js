@@ -6,6 +6,7 @@ import Header from "./Header";
 import Form from "./Form";
 
 import "./App.css";
+import PalettesList from "./PalettesList";
 
 class App extends Component {
   constructor() {
@@ -13,7 +14,8 @@ class App extends Component {
     this.state = {
       coloursBaseUrl: 'http://www.colourlovers.com/api/palettes',
       coloursQuery:'',
-      coloursAvailable: []
+      coloursAvailable: [],
+      formSubmitted: false
     };
   }
 
@@ -38,14 +40,14 @@ class App extends Component {
           params: {
             keywords: this.state.coloursQuery,
             numResults: 10,
-            orderCol: "numVotes",
             format: "json"
           }
         }
       }).then(res => {
         console.log(res.data);
         this.setState({
-          coloursAvailable: res.data
+          coloursAvailable: res.data,
+          formSubmitted: true
         });
       });
   }
@@ -63,18 +65,12 @@ class App extends Component {
             />
           </section>
 
-          {/* WIP */}
-          <section className="palette">
-            {this.state.coloursAvailable.length ? (
-              <ul className="palette__list">
-                {this.state.coloursAvailable.map(palette => (
-                  <li key={palette.id}>{palette.title}</li>
-                ))}
-              </ul>
-            ) : (
-              <p>Sorry, we couldn't find anything for your search.</p>
-            )}
-          </section>
+          {this.state.formSubmitted 
+            ?
+          <PalettesList coloursArray={this.state.coloursAvailable}/>
+            :
+          null}
+          
         </main>
       </div>
     );
