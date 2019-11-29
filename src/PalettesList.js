@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Palette from './Palette';
+
+
 function PalettesList(props) {
   return (
     <section className="palette-list notSubmitted">
@@ -19,7 +21,7 @@ function PalettesList(props) {
         <p>Sorry, we couldn't find anything for your search.</p>
       )}
     </section>
-  );
+  )
 }
 
 export default PalettesList;

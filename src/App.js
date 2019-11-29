@@ -61,7 +61,7 @@ class App extends Component {
           <section className="userInput">
             <Form
               formHandler={this.formSubmit}
-              textareaHandler={this.textChange}
+              textHandler={this.textChange}
             />
           </section>
 
