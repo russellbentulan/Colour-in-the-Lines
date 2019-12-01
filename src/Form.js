@@ -1,20 +1,27 @@
 import React from 'react';
+import showErrorMessage from './showErrorMessage';
 
 function Form(props) {
+  const { formHandler, palettesQuery, textHandler, errorMessage } = props;
   return (
-    <form className="userInput__form" onSubmit={props.formHandler}>
-      <label htmlFor="textInput">Enter your text below</label>
-      <input
-        type="text"
-        className="userInput__text"
-        id="textInput"
-        rows="4"
-        cols="50"
-        onChange={props.textHandler}
-      ></input>
+    <section className="user-input">
+      <form className="user-input__form" onSubmit={formHandler}>
 
-      <button type="submit">Get Your Colours</button>
-    </form>
+        <label htmlFor="textInput">Enter your text below</label>
+        <input
+          type="text"
+          className="user-input__text"
+          id="textInput"
+          value={palettesQuery}
+          onChange={textHandler}
+          ></input>
+
+        {errorMessage ? showErrorMessage(errorMessage) : null}
+        
+        <button type="submit">Get Your Colours</button>
+        
+      </form>
+    </section>
   );
 } 
 
