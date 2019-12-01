@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import Qs from "qs";
 import axios from "axios";
+import Qs from "qs";
 
 import Header from "./Header";
 import Form from "./Form";
+import textAnalyze from "./textAnalyze";
 
 import "./App.css";
 import PalettesList from "./PalettesList";
@@ -50,6 +51,10 @@ class App extends Component {
           formSubmitted: true
         });
       });
+  }
+
+  componentDidMount() {
+    textAnalyze();
   }
 
   render() {
