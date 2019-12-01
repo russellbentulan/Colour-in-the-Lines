@@ -1,0 +1,11 @@
+.palette {
+  list-style: none;
+  display: flex;
+
+  &__button {
+    border: none;
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+  }
+}

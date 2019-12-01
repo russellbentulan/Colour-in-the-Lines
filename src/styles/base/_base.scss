@@ -6,22 +6,15 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 .visually-hidden:not(:focus):not(:active) { position: absolute !important; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}
 
+html {
+  font-size: 62.5%;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
 ul {
   padding-left: 0;
-}
-
-.palette-list__list {
-  list-style: none;
-}
-
-.palette {
-  list-style: none;
-  display: flex;
-}
-
-.palette__button {
-  border: none;
-  cursor: pointer;
-  width: 150px;
-  height: 150px
 }

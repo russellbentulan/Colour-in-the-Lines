@@ -4,9 +4,8 @@ import Qs from "qs";
 
 import Header from "./Header";
 import Form from "./Form";
-import textAnalyze from "./textAnalyze";
 
-import "./App.css";
+import "./styles/App.scss";
 import PalettesList from "./PalettesList";
 
 class App extends Component {
@@ -51,10 +50,6 @@ class App extends Component {
           formSubmitted: true
         });
       });
-  }
-
-  componentDidMount() {
-    textAnalyze();
   }
 
   render() {
