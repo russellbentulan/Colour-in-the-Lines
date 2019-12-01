@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 class Palette extends Component {
-
   render() {
+    const componentClass = classNames(
+      'Palette', 
+      {'Palette--selected': this.props.selected});
+
     return (
-      <ul className="palette">
+      <ul className={componentClass}>
         {this.props.paletteInfo.colors.map((color, i) => (
-          <li className="palette__item" key={i}>
+          <li 
+            className="componentClass" 
+            key={i}>
+
             <button
-              className="palette__button"
+              className="Palette__button"
+              data-color={color}
               style={{ backgroundColor: "#" + color }}
             >
               #{color}
             </button>
+
           </li>
         ))}
       </ul>

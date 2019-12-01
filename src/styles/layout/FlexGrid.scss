@@ -1,0 +1,32 @@
+.wrapper {
+  max-width: $gridWidth;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.FlexGrid {
+  display: flex;
+  flex-flow: row wrap;
+
+  &--noWrap {
+    display: flex;
+    justify-content: center;
+  }
+
+
+}
+
+.Column {
+
+  &--1-of-2 {
+    flex: 1 1 calc((100% - #{$gridGutter}) / 2);
+
+    &:not(:nth-child(2)) {
+      margin-right: $gridGutter;
+    }
+  }
+
+  &--left {
+    margin-right: $gridGutter;
+  }
+}

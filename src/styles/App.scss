@@ -4,7 +4,10 @@
 @import 'base/base',
         'base/typography';
 
-@import 'components/palette-list',
-        'components/palette';
+@import 'components/MainTitle',
+        'components/UserInput';
 
-@import 'layout/flex-grid';
+@import 'features/PaletteList',
+        'features/Palette';
+
+@import 'layout/FlexGrid';

@@ -1,0 +1,37 @@
+.MainTitle {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 3rem;
+  &__heading {
+    font-family: $headingFont;
+    font-weight: 700;
+    font-size: 5.6rem;
+    text-transform: uppercase;
+    margin: 0;
+    background: $white;
+    line-height: .8;
+  
+    &::before {
+      content: "Colour in the Lines";
+      display: block;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      transition: .4s all cubic-bezier(.17,.67,.83,.67);
+      transform: scaleY(1);
+      text-shadow: 0 .06em 0 $white,
+                  0 .08em 0 $black,
+                  0 .11em 0 $white,
+                  0 .14em 0 $black,
+                  0 .18em 0 $white,
+                  0 .22em 0 $black,
+                  0 .27em 0 $white,
+                  0 .32em 0 $black;
+    }
+
+    &:hover::before {
+      transform: scaleY(1.2);
+    }
+  }
+}
+

@@ -4,10 +4,10 @@ import Palette from './Palette';
 
 function PalettesList(props) {
   return (
-    <section className="palette-list notSubmitted">
+    <section className="PaletteList notSubmitted">
       {props.coloursArray.length ? (
 
-        <ul className="palette-list__list">
+        <ul className="PaletteList__list">
           {props.coloursArray.map(palette => (
           <li key={palette.id}>
             <Palette 

@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import axios from "axios";
 import Qs from "qs";
 
-import Header from "./Header";
-import Form from "./Form";
+import MainTitle from "./components/MainTitle";
+import Form from "./components/Form";
 
 import "./styles/App.scss";
-import PalettesList from "./PalettesList";
+import PalettesList from "./features/PalettesList";
 
 class App extends Component {
   constructor() {
@@ -87,9 +87,9 @@ class App extends Component {
     
     return (
       <div>
-        <Header />
 
         <main>
+          <MainTitle />
 
           <Form
             formHandler={this.handleFormSubmit}
