@@ -7,7 +7,6 @@ function ColourButton(props) {
     'ColourButton',
     {'ColourButton--selected': props.isChosen}
   ); 
-  console.log(props.colour);
   return (
     <button
       className={componentClass}

@@ -5,6 +5,7 @@ import Main from './layout/Main';
 import './styles/App.scss';
 
 class App extends Component {
+  
   constructor() {
     super();
 
