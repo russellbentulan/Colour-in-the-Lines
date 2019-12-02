@@ -1,13 +1,9 @@
 @import 'abstracts/variables',
+        'abstracts/utilities',
         'abstracts/mixins';
 
-@import 'base/base',
-        'base/typography';
+@import 'base/base';
 
-@import 'components/MainTitle',
-        'components/UserInput';
-
-@import 'features/PaletteList',
-        'features/Palette';
+@import 'components/AppTitle';
 
 @import 'layout/FlexGrid';

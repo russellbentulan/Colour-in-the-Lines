@@ -1,15 +1,15 @@
-.MainTitle {
+.AppTitle {
   display: inline-block;
   position: relative;
   padding-bottom: 3rem;
   &__heading {
     font-family: $headingFont;
     font-weight: 700;
-    font-size: 5.6rem;
+    font-size: 6.6rem;
     text-transform: uppercase;
     margin: 0;
-    background: $white;
-    line-height: .8;
+    background: linear-gradient(180deg, rgba($white, 1) 85%, rgba($white, 0) 100%);
+    line-height: 1;
   
     &::before {
       content: "Colour in the Lines";
@@ -17,7 +17,7 @@
       position: absolute;
       top: 0;
       z-index: -1;
-      transition: .4s all cubic-bezier(.17,.67,.83,.67);
+      transition: .4s all ease-in-out;
       transform: scaleY(1);
       text-shadow: 0 .06em 0 $white,
                   0 .08em 0 $black,
@@ -28,10 +28,10 @@
                   0 .27em 0 $white,
                   0 .32em 0 $black;
     }
+    
 
     &:hover::before {
-      transform: scaleY(1.2);
+      transform: scaleY(1.25);
     }
   }
 }
-
