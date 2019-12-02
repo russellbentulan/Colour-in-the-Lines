@@ -56,11 +56,22 @@ class Form extends Component {
     }
   };
 
+  // Update state when text is being input
   handleTextInput = e => {
     this.setState({
       stringToQuery: e.target.value
     });
   };
+
+  // Check contrast ratio of colour before changing the background of the text input
+  // Change the colour of the text to make it accessible
+  getContrastRatio(hexcolor) {
+    const r = parseInt(hexcolor.substr(0,2),16);
+    const g = parseInt(hexcolor.substr(2,2),16);
+    const b = parseInt(hexcolor.substr(4,2),16);
+    const yiq = ((r*299)+(g*587)+(b*114))/1000;
+    return (yiq >= 128) ? 'black' : 'white';
+  }
 
   render() {
     return (
@@ -79,6 +90,15 @@ class Form extends Component {
               id="textInput"
               value={this.props.stringToQuery}
               onChange={this.handleTextInput}
+              onFocus={this.props.formFocusListener}
+              style={
+                this.props.textBackground
+                  ? {
+                      background: `#${this.props.textBackground}`,
+                      color: this.getContrastRatio(this.props.textBackground)
+                    }
+                  : null
+              }
             ></textarea>
 
             {this.state.errorMessage ? (

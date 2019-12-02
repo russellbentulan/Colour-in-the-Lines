@@ -32,7 +32,6 @@ class PalettesSelection extends Component {
   render() {
 
     const currentPalette = this.props.palettesArray[this.state.currentIndex];
-    console.log('show');
     return (
       <section className="PalettesSelection__container">
         <div className="wrapper">
@@ -46,13 +45,18 @@ class PalettesSelection extends Component {
 
           <Palette
             paletteInfo={currentPalette}
+            colourButtonListener={this.props.colourButtonListener}
           />
 
           <div>
             <PalettesSelectionButton
               direction="next"
               selectionHandler={this.changePalettes}
-              disabled={this.state.currentIndex === this.props.palettesArray.length - 1 ? true : false}
+              disabled={
+                this.state.currentIndex === this.props.palettesArray.length - 1
+                  ? true
+                  : false
+              }
             />
           </div>
         </div>

@@ -9,7 +9,7 @@ function ColourButton(props) {
   return(
     <button 
       className={componentClass} 
-      onClick={props.clickHandler} 
+      onClick={e => props.clickHandler(e, props.colour)} 
       style={{background: `#${props.colour}`}}>{props.colour}</button>
   );
 }

@@ -6,13 +6,14 @@ class Palette extends Component {
     super(props)
 
     this.state = {
-      colourChoice: 0
+      colourChoice: this.props.paletteInfo.colors[0]
     }
   }
 
-  changeColourChoice = (newIndex) => {
+  changeColourChoice = (e, colour) => {
+    this.props.colourButtonListener(colour);
     this.setState({
-      colourChoice: newIndex
+      colourChoice: colour
     });
   }
 
@@ -22,7 +23,7 @@ class Palette extends Component {
         {this.props.paletteInfo.colors.map((colour, i) => (
           <li className="Palette__item" key={i}>
             <ColourButton
-              isChosen={i === this.state.colourChoice}
+              isChosen={colour === this.state.colourChoice}
               colour={colour}
               clickHandler={this.changeColourChoice}
             />

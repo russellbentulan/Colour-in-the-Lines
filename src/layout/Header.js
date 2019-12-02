@@ -6,9 +6,9 @@ class Header extends Component {
     return (
       <header className="HeaderComponent">
         <section className="wrapper u-centerText">
-
-          <AppTitle/>
-
+          <AppTitle 
+            expand={this.props.formFocused}
+          />
         </section>
       </header>
     );

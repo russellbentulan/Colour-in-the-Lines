@@ -8,16 +8,16 @@
     font-size: 6.6rem;
     text-transform: uppercase;
     margin: 0;
-    background: linear-gradient(180deg, rgba($white, 1) 85%, rgba($white, 0) 100%);
+    background: linear-gradient(180deg, rgba($white, 1) 75%, rgba($white, 0) 100%);
     line-height: 1;
-  
+
     &::before {
       content: "Colour in the Lines";
       display: block;
       position: absolute;
       top: 0;
       z-index: -1;
-      transition: .4s all ease-in-out;
+      transition: .6s all ease-in-out;
       transform: scaleY(1);
       text-shadow: 0 .06em 0 $white,
                   0 .08em 0 $black,
@@ -28,10 +28,9 @@
                   0 .27em 0 $white,
                   0 .32em 0 $black;
     }
-    
 
-    &:hover::before {
-      transform: scaleY(1.25);
+    &--expand::before {
+      transform: scaleY(1.5) translateY(-.1em);
     }
   }
 }

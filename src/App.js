@@ -9,17 +9,21 @@ class App extends Component {
     super();
 
     this.state = {
-      stringToQuery: '',
-      palettesArray: []
+      didFormFocus: false
     }
   }
 
-  render() {
-    return(
-      <>
-        <Header />
+  // Animate the AppTitle component when the user focuses on the textarea
+  handleFormFocus = () => {
+    this.setState({didFormFocus: true});
+  }
 
-        <Main />
+  render() {
+    return (
+      <>
+        <Header formFocused={this.state.didFormFocus} />
+
+        <Main formFocusListener={this.handleFormFocus} />
       </>
     );
   }

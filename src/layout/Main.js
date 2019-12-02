@@ -8,7 +8,8 @@ class Main extends Component {
 
     this.state = {
       didFormSubmit: false,
-      allPalettesArray: []
+      allPalettesArray: [],
+      colorSelection: null
     }
   }
 
@@ -19,26 +20,28 @@ class Main extends Component {
     })
   }
 
+  handleColourChoice = (colour) => {
+    this.setState({
+      colorSelection: colour
+    })
+  }
+
   render() {
     const {
       didFormSubmit,
       allPalettesArray
     } = this.state
 
-    return(
+    return (
       <main>
         <Form 
-          dataHandler={this.setPalettes}
-        />
+          dataHandler={this.setPalettes} 
+          formFocusListener={this.props.formFocusListener} 
+          textBackground={this.state.colorSelection}/>
 
-        {didFormSubmit ?
-          <PalettesSelection 
-            palettesArray={allPalettesArray}
-          />
-        :
-          null
-        }
-
+        {didFormSubmit ? (
+          <PalettesSelection palettesArray={allPalettesArray} colourButtonListener={this.handleColourChoice} />
+        ) : null}
       </main>
     );
   }
