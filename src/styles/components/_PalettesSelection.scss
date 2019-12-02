@@ -1,0 +1,14 @@
+.PalettesSelection {
+  &__container {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  &__button {
+    flex: 1 1 50%;
+
+    &--right {
+      text-align: right;
+    }
+  }
+}

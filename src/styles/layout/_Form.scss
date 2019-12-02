@@ -1,0 +1,12 @@
+.FormComponent {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__textarea {
+    resize: none;
+    line-height: 1.6;
+  }
+}

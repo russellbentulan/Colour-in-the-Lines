@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Qs from "qs";
 import axios from "axios";
+import getContrastRatio from '../functions/getContrastRatio';
 
 class Form extends Component {
   constructor(props) {
@@ -63,16 +64,6 @@ class Form extends Component {
     });
   };
 
-  // Check contrast ratio of colour before changing the background of the text input
-  // Change the colour of the text to make it accessible
-  getContrastRatio(hexcolor) {
-    const r = parseInt(hexcolor.substr(0,2),16);
-    const g = parseInt(hexcolor.substr(2,2),16);
-    const b = parseInt(hexcolor.substr(4,2),16);
-    const yiq = ((r*299)+(g*587)+(b*114))/1000;
-    return (yiq >= 128) ? 'black' : 'white';
-  }
-
   render() {
     return (
       <section className="FormComponent">
@@ -86,6 +77,7 @@ class Form extends Component {
             </label>
 
             <textarea
+              rows="4"
               className="FormComponent__textarea"
               id="textInput"
               value={this.props.stringToQuery}
@@ -95,7 +87,7 @@ class Form extends Component {
                 this.props.textBackground
                   ? {
                       background: `#${this.props.textBackground}`,
-                      color: this.getContrastRatio(this.props.textBackground)
+                      color: getContrastRatio(this.props.textBackground)
                     }
                   : null
               }

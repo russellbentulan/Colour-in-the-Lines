@@ -33,9 +33,9 @@ class PalettesSelection extends Component {
 
     const currentPalette = this.props.palettesArray[this.state.currentIndex];
     return (
-      <section className="PalettesSelection__container">
-        <div className="wrapper">
-          <div>
+      <section className="PalettesSelection">
+        <div className="wrapper PalettesSelection__container">
+          <div className="PalettesSelection__button PalettesSelection__button--left">
             <PalettesSelectionButton
               direction="previous"
               selectionHandler={this.changePalettes}
@@ -48,7 +48,7 @@ class PalettesSelection extends Component {
             colourButtonListener={this.props.colourButtonListener}
           />
 
-          <div>
+          <div className="PalettesSelection__button PalettesSelection__button--right">
             <PalettesSelectionButton
               direction="next"
               selectionHandler={this.changePalettes}

@@ -4,6 +4,11 @@
 
 @import 'base/base';
 
-@import 'components/AppTitle';
+@import 'components/AppTitle',
+        'components/PalettesSelection',
+        'components/Palette',
+        'components/ColourButton';
 
-@import 'layout/FlexGrid';
+@import 'layout/flexGrid',
+        'layout/Header',
+        'layout/Form';
