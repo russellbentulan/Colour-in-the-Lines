@@ -28,15 +28,21 @@ function ColourButton(props) {
     grey: "#a9a9a9",
     black: "#000000"
   };
-
-  const nearestColour = require('nearest-color').from(colors);
-  const colourName = nearestColour(props.colour).name;
+  
   const componentClass = cn(
     'ColourButton',
     {'ColourButton--selected': props.isChosen}
   ); 
+  const nearestColour = require('nearest-color').from(colors);
+  const colourName = nearestColour(props.colour).name;
 
-  // let colourNameArray = [colourName, props.descriptorWord];
+  let wholeWord = "";
+
+  if (typeof props.descriptorWord !== "string") {
+    wholeWord = props.descriptorWord[0] + colourName;
+  } else {
+    wholeWord = props.descriptorWord + colourName;
+  }
 
   return (
     <button
@@ -47,7 +53,7 @@ function ColourButton(props) {
         background: `#${props.colour}`
       }}
     >
-      {props.descriptorWord ? props.descriptorWord + ' ' + colourName : colourName}
+      {props.descriptorWord ? wholeWord : colourName}
     </button>
   );
 }
