@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/russell-bentulan-project-five/static/css/main.a5e538e2.chunk.css",
+    "main.js": "/russell-bentulan-project-five/static/js/main.bfd8176a.chunk.js",
+    "main.js.map": "/russell-bentulan-project-five/static/js/main.bfd8176a.chunk.js.map",
+    "runtime-main.js": "/russell-bentulan-project-five/static/js/runtime-main.e4ff51fa.js",
+    "runtime-main.js.map": "/russell-bentulan-project-five/static/js/runtime-main.e4ff51fa.js.map",
+    "static/js/2.c616eda3.chunk.js": "/russell-bentulan-project-five/static/js/2.c616eda3.chunk.js",
+    "static/js/2.c616eda3.chunk.js.map": "/russell-bentulan-project-five/static/js/2.c616eda3.chunk.js.map",
+    "index.html": "/russell-bentulan-project-five/index.html",
+    "precache-manifest.736ede5668d4c8a07ee6714bba95a36e.js": "/russell-bentulan-project-five/precache-manifest.736ede5668d4c8a07ee6714bba95a36e.js",
+    "service-worker.js": "/russell-bentulan-project-five/service-worker.js",
+    "static/css/main.a5e538e2.chunk.css.map": "/russell-bentulan-project-five/static/css/main.a5e538e2.chunk.css.map",
+    "static/media/App.scss": "/russell-bentulan-project-five/static/media/paper_fibers.d1121140.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e4ff51fa.js",
+    "static/js/2.c616eda3.chunk.js",
+    "static/css/main.a5e538e2.chunk.css",
+    "static/js/main.bfd8176a.chunk.js"
+  ]
+}
