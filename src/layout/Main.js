@@ -9,14 +9,16 @@ class Main extends Component {
     this.state = {
       didFormSubmit: false,
       allPalettesArray: [],
-      colorSelection: null
+      colorSelection: null,
+      keyWordsArray: []
     }
   }
 
-  setPalettes = (data) => {
+  setPalettes = (data, keywords) => {
     this.setState({
       didFormSubmit: true,
-      allPalettesArray: data
+      allPalettesArray: data,
+      keyWordsArray: keywords
     })
   }
 
@@ -40,7 +42,10 @@ class Main extends Component {
           textBackground={this.state.colorSelection}/>
 
         {didFormSubmit ? (
-          <PalettesSelection palettesArray={allPalettesArray} colourButtonListener={this.handleColourChoice} />
+          <PalettesSelection 
+            palettesArray={allPalettesArray} 
+            colourButtonListener={this.handleColourChoice}
+            keyWordsArray={this.state.keyWordsArray} />
         ) : null}
       </main>
     );

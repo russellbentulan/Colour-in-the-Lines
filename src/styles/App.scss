@@ -4,11 +4,13 @@
 
 @import 'base/base';
 
-@import 'components/AppTitle',
+@import 'components/button',
+        'components/AppTitle',
         'components/PalettesSelection',
         'components/Palette',
         'components/ColourButton';
 
 @import 'layout/flexGrid',
         'layout/Header',
-        'layout/Form';
+        'layout/Form',
+        'layout/Footer';

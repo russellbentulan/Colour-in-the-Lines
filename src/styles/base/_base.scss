@@ -8,6 +8,14 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 html {
   font-size: 62.5%;
+
+  @include respond(sm) {
+    font-size: 80%;
+  }
+
+  @include respond(md) {
+    font-size: 100%;
+  }
 }
 
 img {
@@ -22,4 +30,27 @@ ul {
 body {
   font-family: $bodyFont;
   font-size: 1.6rem;
+
+  background: url(../../assets/paper_fibers.png);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: #236893;
+
+  &:hover {
+    color: #2C8CAF;
+  }
 }

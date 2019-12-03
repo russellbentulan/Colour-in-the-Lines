@@ -49,15 +49,19 @@ class Form extends Component {
     const keyWordsArray = analyzedText.data.documents[0].keyPhrases;
 
     let keyWords = "";
+    let keyWordsForColours = [];
+
     if (!keyWordsArray.length) {
       // If there are no extracted keywords, use the original user text
       keyWords = this.state.stringToQuery;
     } else if (keyWordsArray.length === 1) {
       // If there is 1 extracted keyword, use that
       keyWords = keyWordsArray[0];
+      keyWordsForColours = [...keyWordsArray];
     } else {
       // Use two extracted keywords at most to get the best results
       keyWords = keyWordsArray[0] + " " + keyWordsArray[1];
+      keyWordsForColours = [...keyWordsArray];
     }
 
     axios({
@@ -80,7 +84,7 @@ class Form extends Component {
         // Check if there are matching palettes related to the search query
         if (response.data.length) {
           // pass data up to parent component
-          this.props.dataHandler(response.data);
+          this.props.dataHandler(response.data, keyWordsForColours);
 
           // reset the error message
           this.setState({
@@ -88,7 +92,7 @@ class Form extends Component {
           })
         } else {
           this.throwErrorMessage(
-            `Sorry, we couldn't find any palettes relating to your text, try something else like "Gone with the Wind" or "Kittens"`
+            `Sorry, we couldn't find any matching palettes for your text. Try again!`
           );
         }
       })
@@ -106,7 +110,6 @@ class Form extends Component {
       const analyzedText = await this.analyzeText();
 
       this.getColourPalettes(analyzedText);
-
     } else {
       this.throwErrorMessage(`Please type something into the text field.`);
     }
@@ -119,6 +122,13 @@ class Form extends Component {
     });
   };
 
+  // Removes the error message
+  closeErrorMessage = () => {
+    this.setState({
+      errorMessage: ""
+    });
+  }
+
   render() {
     return (
       <section className="FormComponent">
@@ -128,7 +138,7 @@ class Form extends Component {
             onSubmit={this.handleFormSubmit}
           >
             <label htmlFor="textInput" className="FormComponent__label">
-              Enter your text
+              Enter some text!
             </label>
 
             <textarea
@@ -148,13 +158,19 @@ class Form extends Component {
               }
             ></textarea>
 
-            {this.state.errorMessage ? (
-              <p className="FormComponent__error">{this.state.errorMessage}</p>
-            ) : null}
-
             <button type="submit" className="button FormComponent__button">
               Get Colours
             </button>
+
+            {this.state.errorMessage ? (
+              <div className="FormComponent__error-container">
+
+                  <button className="FormComponent__error-button" onClick={this.closeErrorMessage}>X</button>
+                  <p className="FormComponent__error">{this.state.errorMessage}</p>
+
+              </div>
+            ) : null}
+
           </form>
         </div>
       </section>

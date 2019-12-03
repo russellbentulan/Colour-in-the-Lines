@@ -1,0 +1,25 @@
+.button {
+  font-size: 2rem;
+  padding: .8rem .4rem;
+  background-color:#E6726D;
+  color: #FFF;
+  border: 2px solid #935327;
+  min-width: 10rem;
+  
+  &:not([disabled]) {
+    transition: .2s transform;
+
+    &:hover,
+    &:focus {
+      border: 1px solid $black;
+      box-shadow: 0 0 5px rgba($black, .8);
+      transform: translateY(-5px);
+    }
+  }
+
+
+  &[disabled] {
+    background-color: #542614;
+    color:#74311C;
+  }
+}

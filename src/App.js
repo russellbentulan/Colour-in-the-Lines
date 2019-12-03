@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './layout/Header';
 import Main from './layout/Main';
+import Footer from './layout/Footer';
 
 import './styles/App.scss';
 
@@ -25,6 +26,8 @@ class App extends Component {
         <Header formFocused={this.state.didFormFocus} />
 
         <Main formFocusListener={this.handleFormFocus} />
+
+        <Footer />
       </>
     );
   }
