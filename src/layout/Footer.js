@@ -25,8 +25,8 @@ function Footer() {
 
         <div className="col-1-of-2">
           <p className="FooterComponent__personalInfo">
-            Created by{" "}
-            <a href="http://russellbentulan.com">Russell Bentulan 2019</a>
+            Created by <a href="http://russellbentulan.com">Russell Bentulan </a>
+            2019
           </p>
         </div>
       </div>

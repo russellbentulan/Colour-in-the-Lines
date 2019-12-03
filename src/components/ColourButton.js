@@ -36,19 +36,7 @@ function ColourButton(props) {
     {'ColourButton--selected': props.isChosen}
   ); 
 
-  let colourNameArray = [colourName, props.descriptorWord];
-
-  colourNameArray = (...colourNameArray) => {
-    let m = colourNameArray.length;
-    while (m) {
-      const i = Math.floor(Math.random() * m--);
-      [colourNameArray[m], colourNameArray[i]] = [
-        colourNameArray[i],
-        colourNameArray[m]
-      ];
-    }
-    return colourNameArray;
-  };
+  // let colourNameArray = [colourName, props.descriptorWord];
 
   return (
     <button
@@ -59,7 +47,7 @@ function ColourButton(props) {
         background: `#${props.colour}`
       }}
     >
-      {props.descriptorWord ? colourNameArray.join(" ") : colourName}
+      {props.descriptorWord ? props.descriptorWord + ' ' + colourName : colourName}
     </button>
   );
 }

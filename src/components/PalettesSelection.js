@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import PalettesSelectionButton from "./PalettesSelectionButton";
 import Palette from "./Palette";
+import shuffleArray from '../functions/shuffleArray';
+
 
 class PalettesSelection extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      currentIndex: 0
+      currentIndex: 0,
+      shuffledKeywords: this.props.keyWordsArray
     };
   }
 
@@ -24,12 +27,15 @@ class PalettesSelection extends Component {
     // Make sure a non-existant index cannot be reached
     if (this.props.palettesArray[newIndex] !== undefined) {
       this.setState({
-        currentIndex: newIndex
+        currentIndex: newIndex,
+        shuffledKeywords: shuffleArray(this.state.shuffledKeywords)
       });
     }
   };
 
-render() {
+  render() {
+
+    // this.showkeyWords(this.props.keyWordsArray);
     const currentPalette = this.props.palettesArray[this.state.currentIndex];
     return (
       <section className="PalettesSelection col-1-of-2--lg">
@@ -45,7 +51,7 @@ render() {
           <Palette
             paletteInfo={currentPalette}
             colourButtonListener={this.props.colourButtonListener}
-            keyWordsArray={this.props.keyWordsArray}
+            keyWordsArray={this.state.shuffledKeywords}
           />
 
           <div className="PalettesSelection__button PalettesSelection__button--right">

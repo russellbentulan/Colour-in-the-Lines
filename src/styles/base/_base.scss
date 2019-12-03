@@ -43,7 +43,7 @@ body {
   display: flex;
   flex-direction: column;
 
-  @include respond(md) {
+  @include respond(xl) {
     min-height: 500px;
   }
 }

@@ -49,7 +49,7 @@ class Form extends Component {
     const keyWordsArray = analyzedText.data.documents[0].keyPhrases;
 
     let keyWords = "";
-    let keyWordsForColours = [];
+    let keyWordsToDisplay = [];
 
     if (!keyWordsArray.length) {
       // If there are no extracted keywords, use the original user text
@@ -57,11 +57,11 @@ class Form extends Component {
     } else if (keyWordsArray.length === 1) {
       // If there is 1 extracted keyword, use that
       keyWords = keyWordsArray[0];
-      keyWordsForColours = [...keyWordsArray];
+      keyWordsToDisplay = [...keyWordsArray];
     } else {
       // Use two extracted keywords at most to get the best results
       keyWords = keyWordsArray[0] + " " + keyWordsArray[1];
-      keyWordsForColours = [...keyWordsArray];
+      keyWordsToDisplay = [...keyWordsArray];
     }
 
     axios({
@@ -84,7 +84,7 @@ class Form extends Component {
         // Check if there are matching palettes related to the search query
         if (response.data.length) {
           // pass data up to parent component
-          this.props.dataHandler(response.data, keyWordsForColours);
+          this.props.dataHandler(response.data, keyWordsToDisplay);
 
           // reset the error message
           this.setState({
@@ -138,7 +138,7 @@ class Form extends Component {
             onSubmit={this.handleFormSubmit}
           >
             <label htmlFor="textInput" className="FormComponent__label">
-              Write what ya want!
+              Write some text here!
             </label>
 
             <textarea

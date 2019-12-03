@@ -1,10 +1,11 @@
 .button {
   font-size: 2rem;
   padding: .8rem .4rem;
-  background-color:#E6726D;
+  background-color: $primaryColour;
   color: #FFF;
   border: 2px solid #935327;
   min-width: 10rem;
+  position: relative;
   
   &:not([disabled]) {
     transition: .2s transform;
