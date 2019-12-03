@@ -2,6 +2,7 @@
   display: inline-block;
   position: relative;
   padding-bottom: 3rem;
+
   &__heading {
     font-family: $headingFont;
     font-weight: 700;
@@ -10,12 +11,13 @@
     margin: 0;
     background: $white;
     line-height: .8;
+    z-index: 10;
 
     &::before {
       content: "Colour in the Lines";
       display: block;
       position: absolute;
-      top: 0;
+      top: 9;
       z-index: -1;
       transition: 2s all ease-in-out;
       transform: scaleY(1);
