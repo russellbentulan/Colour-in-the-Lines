@@ -1,3 +1,7 @@
 .HeaderComponent {
   padding: $gutterVertical--lg $gutterVertical--sm 0;
+
+  @include respond(lg) {
+    padding: $gutterVertical--sm 0;
+  }
 }

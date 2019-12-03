@@ -35,7 +35,7 @@ class Main extends Component {
     } = this.state
 
     return (
-      <main>
+      <main className="flexGrid wrapper">
         <Form 
           dataHandler={this.setPalettes} 
           formFocusListener={this.props.formFocusListener} 

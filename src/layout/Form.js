@@ -131,18 +131,18 @@ class Form extends Component {
 
   render() {
     return (
-      <section className="FormComponent">
+      <section className="FormComponent col-1-of-2--lg">
         <div className="wrapper">
           <form
             className="FormComponent__form"
             onSubmit={this.handleFormSubmit}
           >
             <label htmlFor="textInput" className="FormComponent__label">
-              Enter some text!
+              Write what ya want!
             </label>
 
             <textarea
-              rows="4"
+              rows="3"
               className="FormComponent__textarea"
               id="textInput"
               value={this.props.stringToQuery}

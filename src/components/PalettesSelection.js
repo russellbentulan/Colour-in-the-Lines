@@ -32,7 +32,7 @@ class PalettesSelection extends Component {
 render() {
     const currentPalette = this.props.palettesArray[this.state.currentIndex];
     return (
-      <section className="PalettesSelection">
+      <section className="PalettesSelection col-1-of-2--lg">
         <div className="wrapper PalettesSelection__container">
           <div className="PalettesSelection__button PalettesSelection__button--left">
             <PalettesSelectionButton

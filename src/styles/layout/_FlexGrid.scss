@@ -17,3 +17,15 @@
 .col-1-of-3 {
   flex: 1 1 33%;
 }
+
+.col-1-of-2 {
+  flex: 1 1 50%;
+
+  &--lg {
+    flex: 1 1 100%;
+
+    @include respond(md) {
+      flex: 1 1 50%;
+    }
+  }
+}

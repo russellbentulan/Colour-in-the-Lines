@@ -16,6 +16,10 @@ html {
   @include respond(md) {
     font-size: 100%;
   }
+
+  @include respond(xl) {
+    font-size: 165%;
+  }
 }
 
 img {
@@ -38,6 +42,10 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+
+  @include respond(md) {
+    min-height: 500px;
+  }
 }
 
 main {

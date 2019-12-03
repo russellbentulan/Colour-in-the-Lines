@@ -1,10 +1,29 @@
 .FooterComponent {
-  font-size: 1rem;
-  line-height: .2;
+  font-size: .8rem;
   padding-top: $gutterVertical--sm;
 
   &__container {
     align-items: center;
   }
   text-align: center;
+
+  &__personalInfo {
+    text-align: right;
+  }
+}
+
+.FooterCredits {
+  &__list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+
+  &__item{
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
 }
