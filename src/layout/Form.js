@@ -48,22 +48,23 @@ class Form extends Component {
 
     const keyWordsArray = analyzedText.data.documents[0].keyPhrases;
 
-    let keyWords = "";
+    let keyWordsToQuery = "";
     let keyWordsToDisplay = [];
 
     if (!keyWordsArray.length) {
       // If there are no extracted keywords, use the original user text
-      keyWords = this.state.stringToQuery;
+      keyWordsToQuery = this.state.stringToQuery;
     } else if (keyWordsArray.length === 1) {
       // If there is 1 extracted keyword, use that
-      keyWords = keyWordsArray[0];
-      keyWordsToDisplay = [...keyWordsArray];
+      keyWordsToQuery = keyWordsArray[0];
+      keyWordsToDisplay = keyWordsArray;
     } else {
       // Use two extracted keywords at most to get the best results
-      keyWords = keyWordsArray[0] + " " + keyWordsArray[1];
-      keyWordsToDisplay = [...keyWordsArray];
+      keyWordsToQuery = keyWordsArray[0] + " " + keyWordsArray[1];
+      keyWordsToDisplay = keyWordsArray;
     }
 
+    //
     axios({
       method: "get",
       url: "https://proxy.hackeryou.com",
@@ -74,7 +75,7 @@ class Form extends Component {
       params: {
         reqUrl: "http://www.colourlovers.com/api/palettes",
         params: {
-          keywords: keyWords,
+          keywords: keyWordsToQuery,
           numResults: 10,
           format: "json"
         }
@@ -88,8 +89,8 @@ class Form extends Component {
 
           // reset the error message
           this.setState({
-            errorMessage: ''
-          })
+            errorMessage: ""
+          });
         } else {
           this.throwErrorMessage(
             `Sorry, we couldn't find any matching palettes for your text. Try again!`

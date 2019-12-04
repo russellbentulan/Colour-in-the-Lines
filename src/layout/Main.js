@@ -21,28 +21,38 @@ class Main extends Component {
   setPalettes = (arrayOfPalettes, arrayOfKeyWords) => {
 
     // Query the API for synonyms related to each keyword passed from the text analyzer
-    const keyWordsAndSynonyms = arrayOfKeyWords.map(word => {
-      return axios({
-        method: "get",
-        url: "https://proxy.hackeryou.com",
-        dataResponse: "json",
-        paramsSerializer: function(params) {
-          return Qs.stringify(params, { arrayFormat: "brackets" });
-        },
-        params: {
-          reqUrl: `${process.env.REACT_APP_API_ENDPOINT_2}${word}/json`
-        }
+    const keyWordPromises = [];
+    arrayOfKeyWords.forEach(keyWord => {
+      // Sometimes the analyzed keyword is multiple words
+      const keyWordArray = keyWord
+        .split(" ")
+        .map(word => {
+        return axios({
+          method: "get",
+          url: "https://proxy.hackeryou.com",
+          dataResponse: "json",
+          paramsSerializer: function(params) {
+            return Qs.stringify(params, { arrayFormat: "brackets" });
+          },
+          params: {
+            reqUrl: `${process.env.REACT_APP_API_ENDPOINT_2}${word}/json`
+          }
+        });
       });
-    })
 
-    // Take all of the synoyms and push them to state
+      keyWordPromises.push(...keyWordArray)
+    });
+
+    // Take all of the synonyms and push them to state
     axios
-      .all(keyWordsAndSynonyms)
-      .then(axios.spread((response) => {
-        const allSynonyms = [
-          ...response.data.noun.syn,
-          ...response.data.verb.syn
-        ];
+      .all(keyWordPromises)
+      .then(axios.spread((...responses) => {
+
+        // Extract all keywords from an unknown amount of API requests
+        const allSynonyms = [];
+        responses.forEach(response => {
+          allSynonyms.push(...response.data.noun.syn, ...response.data.verb.syn)
+        });
 
         // If there are no synonyms, set the keyWordsArray state to an empty array
         if (allSynonyms.length) {
