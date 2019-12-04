@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PalettesSelectionButton from "./PalettesSelectionButton";
 import Palette from "./Palette";
-import shuffleArray from '../functions/shuffleArray';
 
 
 class PalettesSelection extends Component {
@@ -9,8 +8,7 @@ class PalettesSelection extends Component {
     super(props);
 
     this.state = {
-      currentIndex: 0,
-      shuffledKeywords: this.props.keyWordsArray
+      currentIndex: 0
     };
   }
 
@@ -27,16 +25,18 @@ class PalettesSelection extends Component {
     // Make sure a non-existant index cannot be reached
     if (this.props.palettesArray[newIndex] !== undefined) {
       this.setState({
-        currentIndex: newIndex,
-        shuffledKeywords: shuffleArray(this.state.shuffledKeywords)
+        currentIndex: newIndex
       });
     }
   };
 
   render() {
 
-    // this.showkeyWords(this.props.keyWordsArray);
-    const currentPalette = this.props.palettesArray[this.state.currentIndex];
+    const { palettesArray, colourButtonListener, keyWordsArray } = this.props;
+    const { currentIndex } = this.state;
+    
+    const currentPalette = palettesArray[this.state.currentIndex];
+
     return (
       <section className="PalettesSelection col-1-of-2--lg">
         <div className="wrapper PalettesSelection__container">
@@ -44,14 +44,14 @@ class PalettesSelection extends Component {
             <PalettesSelectionButton
               direction="previous"
               selectionHandler={this.changePalettes}
-              disabled={this.state.currentIndex === 0 ? true : false}
+              disabled={currentIndex === 0 ? true : false}
             />
           </div>
 
           <Palette
             paletteInfo={currentPalette}
-            colourButtonListener={this.props.colourButtonListener}
-            keyWordsArray={this.state.shuffledKeywords}
+            colourButtonListener={colourButtonListener}
+            keyWordsArray={keyWordsArray}
           />
 
           <div className="PalettesSelection__button PalettesSelection__button--right">
@@ -59,7 +59,7 @@ class PalettesSelection extends Component {
               direction="next"
               selectionHandler={this.changePalettes}
               disabled={
-                this.state.currentIndex === this.props.palettesArray.length - 1
+                this.state.currentIndex === palettesArray.length - 1
                   ? true
                   : false
               }

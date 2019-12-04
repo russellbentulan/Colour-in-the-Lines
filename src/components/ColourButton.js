@@ -2,8 +2,7 @@ import React from "react";
 import cn from "classnames";
 import getContrastRatio from '../functions/getContrastRatio';
 
-function ColourButton(props) {
-
+function ColourButton({ descriptorWord, colour, clickHandler, isChosen }) {
   const colors = {
     maroon: "#800000",
     red: "#e6194B",
@@ -28,32 +27,24 @@ function ColourButton(props) {
     grey: "#a9a9a9",
     black: "#000000"
   };
-  
-  const componentClass = cn(
-    'ColourButton',
-    {'ColourButton--selected': props.isChosen}
-  ); 
-  const nearestColour = require('nearest-color').from(colors);
-  const colourName = nearestColour(props.colour).name;
 
-  let wholeWord = "";
+  const componentClass = cn("ColourButton", {
+    "ColourButton--selected": isChosen
+  });
 
-  if (typeof props.descriptorWord !== "string") {
-    wholeWord = props.descriptorWord[0] + colourName;
-  } else {
-    wholeWord = props.descriptorWord + colourName;
-  }
+  const nearestColour = require("nearest-color").from(colors);
+  const colourName = nearestColour(colour).name;
 
   return (
     <button
       className={componentClass}
-      onClick={e => props.clickHandler(e, props.colour)}
+      onClick={e => clickHandler(e, colour)}
       style={{
-        color: getContrastRatio(props.colour),
-        background: `#${props.colour}`
+        color: getContrastRatio(colour),
+        background: `#${colour}`
       }}
     >
-      {props.descriptorWord ? wholeWord : colourName}
+      {descriptorWord ? descriptorWord + " " + colourName : colourName}
     </button>
   );
 }
