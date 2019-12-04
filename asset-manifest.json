@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/russell-bentulan-project-five/static/css/main.3acc3a0f.chunk.css",
-    "main.js": "/russell-bentulan-project-five/static/js/main.3fc7cbf8.chunk.js",
-    "main.js.map": "/russell-bentulan-project-five/static/js/main.3fc7cbf8.chunk.js.map",
+    "main.js": "/russell-bentulan-project-five/static/js/main.9b4c1b7c.chunk.js",
+    "main.js.map": "/russell-bentulan-project-five/static/js/main.9b4c1b7c.chunk.js.map",
     "runtime-main.js": "/russell-bentulan-project-five/static/js/runtime-main.e4ff51fa.js",
     "runtime-main.js.map": "/russell-bentulan-project-five/static/js/runtime-main.e4ff51fa.js.map",
     "static/js/2.83d61cf9.chunk.js": "/russell-bentulan-project-five/static/js/2.83d61cf9.chunk.js",
     "static/js/2.83d61cf9.chunk.js.map": "/russell-bentulan-project-five/static/js/2.83d61cf9.chunk.js.map",
     "index.html": "/russell-bentulan-project-five/index.html",
-    "precache-manifest.5591a9526a9e1d54bb5e5745cd04135c.js": "/russell-bentulan-project-five/precache-manifest.5591a9526a9e1d54bb5e5745cd04135c.js",
+    "precache-manifest.8a63ef53286fa93944aa7f99e3547b6f.js": "/russell-bentulan-project-five/precache-manifest.8a63ef53286fa93944aa7f99e3547b6f.js",
     "service-worker.js": "/russell-bentulan-project-five/service-worker.js",
     "static/css/main.3acc3a0f.chunk.css.map": "/russell-bentulan-project-five/static/css/main.3acc3a0f.chunk.css.map",
     "static/media/App.scss": "/russell-bentulan-project-five/static/media/paper_fibers.d1121140.png"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.e4ff51fa.js",
     "static/js/2.83d61cf9.chunk.js",
     "static/css/main.3acc3a0f.chunk.css",
-    "static/js/main.3fc7cbf8.chunk.js"
+    "static/js/main.9b4c1b7c.chunk.js"
   ]
 }

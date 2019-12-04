@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/russell-bentulan-project-five/precache-manifest.5591a9526a9e1d54bb5e5745cd04135c.js"
+  "/russell-bentulan-project-five/precache-manifest.8a63ef53286fa93944aa7f99e3547b6f.js"
 );
 
 self.addEventListener('message', (event) => {
