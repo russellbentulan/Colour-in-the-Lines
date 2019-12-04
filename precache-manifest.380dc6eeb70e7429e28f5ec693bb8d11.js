@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9b6380f6f8231c4ccd3588c5d17c93cf",
+    "revision": "80d311b1f6e316c36a2c56f2c4d860e9",
     "url": "/russell-bentulan-project-five/index.html"
   },
   {
-    "revision": "74aec772a8d702dfda5f",
+    "revision": "2639233d818a1db9ea99",
     "url": "/russell-bentulan-project-five/static/css/main.3acc3a0f.chunk.css"
   },
   {
-    "revision": "dcbf54aa05057e6a61f4",
-    "url": "/russell-bentulan-project-five/static/js/2.83d61cf9.chunk.js"
+    "revision": "3fedd644189d44db6cff",
+    "url": "/russell-bentulan-project-five/static/js/2.43548b02.chunk.js"
   },
   {
-    "revision": "74aec772a8d702dfda5f",
-    "url": "/russell-bentulan-project-five/static/js/main.9b4c1b7c.chunk.js"
+    "revision": "2639233d818a1db9ea99",
+    "url": "/russell-bentulan-project-five/static/js/main.1e26a444.chunk.js"
   },
   {
     "revision": "581752fe515dbdbf248e",
