@@ -149,6 +149,7 @@ class Form extends Component {
               value={this.props.stringToQuery}
               onChange={this.handleTextInput}
               onFocus={this.props.formFocusListener}
+              onBlur={this.props.formFocusListener}
               style={
                 this.props.textBackground
                   ? {

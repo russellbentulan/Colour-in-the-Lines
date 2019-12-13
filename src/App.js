@@ -18,7 +18,7 @@ class App extends Component {
   // Animate the AppTitle component when the user focuses on the textarea
   handleFormFocus = () => {
     this.setState({ 
-      didFormFocus: true
+      didFormFocus: !this.state.didFormFocus
     });
   }
 
