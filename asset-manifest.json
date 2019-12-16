@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/colour-in-the-lines/static/css/main.39a22c7a.chunk.css",
-    "main.js": "/colour-in-the-lines/static/js/main.9cc13952.chunk.js",
-    "main.js.map": "/colour-in-the-lines/static/js/main.9cc13952.chunk.js.map",
-    "runtime-main.js": "/colour-in-the-lines/static/js/runtime-main.02869986.js",
-    "runtime-main.js.map": "/colour-in-the-lines/static/js/runtime-main.02869986.js.map",
-    "static/js/2.43548b02.chunk.js": "/colour-in-the-lines/static/js/2.43548b02.chunk.js",
-    "static/js/2.43548b02.chunk.js.map": "/colour-in-the-lines/static/js/2.43548b02.chunk.js.map",
-    "index.html": "/colour-in-the-lines/index.html",
-    "precache-manifest.b64277f408baebd32c28f3296ad37b86.js": "/colour-in-the-lines/precache-manifest.b64277f408baebd32c28f3296ad37b86.js",
-    "service-worker.js": "/colour-in-the-lines/service-worker.js",
-    "static/css/main.39a22c7a.chunk.css.map": "/colour-in-the-lines/static/css/main.39a22c7a.chunk.css.map",
-    "static/media/App.scss": "/colour-in-the-lines/static/media/paper_fibers.d1121140.png"
+    "main.css": "/russellbentulan/Colour-in-the-Lines/static/css/main.f1772d4b.chunk.css",
+    "main.js": "/russellbentulan/Colour-in-the-Lines/static/js/main.a2f3d16f.chunk.js",
+    "main.js.map": "/russellbentulan/Colour-in-the-Lines/static/js/main.a2f3d16f.chunk.js.map",
+    "runtime-main.js": "/russellbentulan/Colour-in-the-Lines/static/js/runtime-main.aad907b8.js",
+    "runtime-main.js.map": "/russellbentulan/Colour-in-the-Lines/static/js/runtime-main.aad907b8.js.map",
+    "static/js/2.43548b02.chunk.js": "/russellbentulan/Colour-in-the-Lines/static/js/2.43548b02.chunk.js",
+    "static/js/2.43548b02.chunk.js.map": "/russellbentulan/Colour-in-the-Lines/static/js/2.43548b02.chunk.js.map",
+    "index.html": "/russellbentulan/Colour-in-the-Lines/index.html",
+    "precache-manifest.dfde7e2160754749b5c5ff926b426cfe.js": "/russellbentulan/Colour-in-the-Lines/precache-manifest.dfde7e2160754749b5c5ff926b426cfe.js",
+    "service-worker.js": "/russellbentulan/Colour-in-the-Lines/service-worker.js",
+    "static/css/main.f1772d4b.chunk.css.map": "/russellbentulan/Colour-in-the-Lines/static/css/main.f1772d4b.chunk.css.map",
+    "static/media/App.scss": "/russellbentulan/Colour-in-the-Lines/static/media/paper_fibers.d1121140.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.02869986.js",
+    "static/js/runtime-main.aad907b8.js",
     "static/js/2.43548b02.chunk.js",
-    "static/css/main.39a22c7a.chunk.css",
-    "static/js/main.9cc13952.chunk.js"
+    "static/css/main.f1772d4b.chunk.css",
+    "static/js/main.a2f3d16f.chunk.js"
   ]
 }
