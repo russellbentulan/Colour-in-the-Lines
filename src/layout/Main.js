@@ -40,7 +40,7 @@ class Main extends Component {
         });
       });
 
-      keyWordPromises.push(...keyWordArray)
+      keyWordPromises.push(...keyWordArray);
     });
 
     // Take all of the synonyms and push them to state
@@ -51,7 +51,17 @@ class Main extends Component {
         // Extract all keywords from an unknown amount of API requests
         const allSynonyms = [];
         responses.forEach(response => {
-          allSynonyms.push(...response.data.noun.syn, ...response.data.verb.syn)
+
+          const { noun, verb, adjective } = response.data;
+
+          function pushAllWords(...wordsArray) {
+            wordsArray.forEach(words => {
+              if (words !== undefined) {
+                allSynonyms.push(...words.syn);
+              }
+            })
+          }
+          pushAllWords(noun, verb, adjective);
         });
 
         // If there are no synonyms, set the keyWordsArray state to an empty array

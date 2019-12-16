@@ -59,12 +59,13 @@ class Form extends Component {
       keyWordsToQuery = keyWordsArray[0];
       keyWordsToDisplay = keyWordsArray;
     } else {
-      // Use two extracted keywords at most to get the best results
-      keyWordsToQuery = keyWordsArray[0] + " " + keyWordsArray[1];
+      // Take a random keyword to query the colours API
+      const keyword = keyWordsArray[Math.floor(Math.random() * keyWordsArray.length)];
+
+      keyWordsToQuery = keyword;
       keyWordsToDisplay = keyWordsArray;
     }
 
-    //
     axios({
       method: "get",
       url: "https://proxy.hackeryou.com",
