@@ -19,6 +19,8 @@ class Form extends Component {
     this.setState({
       errorMessage: error
     });
+
+    this.props.formSubmitted(true);
   };
 
   // Returns an array of keywords taken from the user's input
@@ -106,6 +108,7 @@ class Form extends Component {
   // Query the API with thy keywords from the user's input
   handleFormSubmit = async e => {
     e.preventDefault();
+    this.props.formSubmitted();
 
     // make sure the user has text to query the API
     if (this.state.stringToQuery) {

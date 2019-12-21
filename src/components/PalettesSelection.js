@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PalettesSelectionButton from "./PalettesSelectionButton";
 import Palette from "./Palette";
 
-
 class PalettesSelection extends Component {
   constructor(props) {
     super(props);
@@ -31,43 +30,51 @@ class PalettesSelection extends Component {
   };
 
   render() {
-
-    const { palettesArray, colourButtonListener, keyWordsArray } = this.props;
+    const {
+      palettesArray,
+      colourButtonListener,
+      keyWordsArray,
+      loadingState
+    } = this.props;
     const { currentIndex } = this.state;
-    
+
     const currentPalette = palettesArray[this.state.currentIndex];
 
-    return (
-      <section className="PalettesSelection col-1-of-2--lg">
-        <div className="wrapper PalettesSelection__container">
-          <div className="PalettesSelection__button PalettesSelection__button--left">
-            <PalettesSelectionButton
-              direction="previous"
-              selectionHandler={this.changePalettes}
-              disabled={currentIndex === 0 ? true : false}
-            />
-          </div>
+    if (loadingState) {
+      return <h2 className="PalettesSelection__preloader">LOADING</h2>;
+    } else {
+      return (
+        <section className="PalettesSelection col-1-of-2--lg">
+          <div className="wrapper PalettesSelection__container">
+            <div className="PalettesSelection__button PalettesSelection__button--left">
+              <PalettesSelectionButton
+                direction="previous"
+                selectionHandler={this.changePalettes}
+                disabled={currentIndex === 0 ? true : false}
+              />
+            </div>
 
-          <Palette
-            paletteInfo={currentPalette}
-            colourButtonListener={colourButtonListener}
-            keyWordsArray={keyWordsArray}
-          />
-
-          <div className="PalettesSelection__button PalettesSelection__button--right">
-            <PalettesSelectionButton
-              direction="next"
-              selectionHandler={this.changePalettes}
-              disabled={
-                this.state.currentIndex === palettesArray.length - 1
-                  ? true
-                  : false
-              }
+            <Palette
+              paletteInfo={currentPalette}
+              colourButtonListener={colourButtonListener}
+              keyWordsArray={keyWordsArray}
             />
+
+            <div className="PalettesSelection__button PalettesSelection__button--right">
+              <PalettesSelectionButton
+                direction="next"
+                selectionHandler={this.changePalettes}
+                disabled={
+                  this.state.currentIndex === palettesArray.length - 1
+                    ? true
+                    : false
+                }
+              />
+            </div>
           </div>
-        </div>
-      </section>
-    );
+        </section>
+      );
+    }
   }
 }
 

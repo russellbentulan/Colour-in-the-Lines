@@ -4,6 +4,12 @@
     flex-flow: row wrap;
   }
 
+  &__preloader {
+    flex: 1 1 50%;
+    align-self: center;
+    text-align: center;
+  }
+
   &__button {
     flex: 1 1 50%;
 

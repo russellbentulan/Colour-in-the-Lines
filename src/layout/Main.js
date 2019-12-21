@@ -11,6 +11,7 @@ class Main extends Component {
 
     this.state = {
       didFormSubmit: false,
+      isLoading: true,
       allPalettesArray: [],
       colourSelection: null,
       keyWordsArray: []
@@ -68,13 +69,13 @@ class Main extends Component {
         if (allSynonyms.length) {
           // Shuffle the synonyms array (So the results aren't the same every form submission)
           this.setState({
-            didFormSubmit: true,
+            isLoading: false,
             allPalettesArray: arrayOfPalettes,
             keyWordsArray: shuffleArray(allSynonyms)
           });
         } else {
           this.setState({
-            didFormSubmit: true,
+            isLoading: false,
             allPalettesArray: arrayOfPalettes,
             keyWordsArray: []
           });
@@ -84,7 +85,7 @@ class Main extends Component {
         // These colour descriptions aren't critical to the app
         // Push the other data over to the results instead
         this.setState({
-          didFormSubmit: true,
+          isLoading: false,
           allPalettesArray: arrayOfPalettes,
           keyWordsArray: []
         });
@@ -98,8 +99,24 @@ class Main extends Component {
     });
   };
 
+  // Render preloader
+  // If there was an error in the colour palette request remove it
+  formHandler = (errorThrown = false) => {
+    if (errorThrown) {
+      this.setState({
+        didFormSubmit: false,
+        isLoading: false
+      })
+    } else {
+      this.setState({
+        didFormSubmit: true,
+        isLoading: true
+      })
+    }
+  }
+
   render() {
-    const { didFormSubmit, allPalettesArray, keyWordsArray, colourSelection} = this.state;
+    const { didFormSubmit, allPalettesArray, keyWordsArray, colourSelection, isLoading} = this.state;
 
     return (
       <main className="flexGrid wrapper">
@@ -107,13 +124,15 @@ class Main extends Component {
           dataHandler={this.setPalettes}
           formFocusListener={this.props.formFocusListener}
           textBackground={colourSelection}
+          formSubmitted={this.formHandler}
         />
 
-        {didFormSubmit ? (
+        {didFormSubmit  ? (
           <PalettesSelection
             palettesArray={allPalettesArray}
             colourButtonListener={this.handleColourChoice}
             keyWordsArray={keyWordsArray}
+            loadingState={isLoading}
           />
         ) : null}
       </main>
